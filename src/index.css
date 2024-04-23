@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    h2{
+        @apply text-[clamp(30px,6vw,45px)] font-bold mb-4;
+    }
+    h3{
+        @apply text-[clamp(20px,6vw,25px)] font-bold mb-2;
+    }
+    a, button{
+        @apply cursor-pointer;
+    }
+}
+
+@layer components{
+    .container{
+        @apply mx-auto max-w-[1440px] w-full;
+    }
+
+    header ul>li{
+        @apply h-full relative flex justify-center items-center;
+    }
+    header ul>li:not(:first-of-type)::before{
+        @apply lg:absolute lg:-bottom-8 lg:w-0 lg:h-1 lg:bg-accent lg:left-1/2 lg:content-[''] lg:transition-all lg:duration-500 lg:ease-in-out;
+    }
+    header ul>li:hover::before{
+        @apply lg:w-full lg:left-0;
+    }
+
+    .homeCard{
+        @apply flex w-full justify-center items-center;
+    }
+
+    .btn{
+        @apply bg-transparent min-w-[120px] p-2 text-center rounded-3xl
+        font-semibold text-primary;
+    }
+    .btn-outline{
+        @apply border border-gray-900;
+    }
+
+    .footer-link ul{
+        @apply opacity-70 space-y-4;
+    }
+
+    footer ul.footerSocials>li{
+        @apply w-[32px] h-[32px] rounded-full invert bg-slate-200 flex justify-center items-center
+        ring-0 ring-slate-100/5 overflow-hidden transition-all duration-200;
+        a,i{@apply text-xl leading-none p-0 m-0 text-center transition-all duration-200;}
+    }
+    footer ul.footerSocials>li:hover{
+        @apply hover:ring-8;
+        i{@apply scale-125;}
+    }
+
+    .cartItems::-webkit-scrollbar{
+        @apply hidden;
+    }
+    
+}
+
+@layer utilities{
+    .f-col{ @apply flex flex-col; }
+    .f-center {@apply flex justify-center items-center}
+    .f-col-center{ @apply flex flex-col items-center justify-center; }
+    .f-center {@apply items-center justify-center; }
+    .between-center {@apply justify-between items-center; }
+    .between-end {@apply justify-between items-end; }
+
+    .ft-el{ @apply font-extralight }
+    .ft-lt{ @apply font-light }
+    .ft-nm{ @apply font-normal }
+    .ft-md{ @apply font-medium }
+    .ft-sb{ @apply font-semibold }
+    .ft-b{ @apply font-bold }
+    .ft-ex{ @apply font-extrabold }
+
+    .tx-a{ @apply left-1/2 -translate-x-1/2 }
+    .ty-a{ @apply top-1/2 -translate-y-1/2 }
+
+    .mx-a{ @apply mx-auto }
+
+    .pointer{@apply cursor-pointer;}
+}
